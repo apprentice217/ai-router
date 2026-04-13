@@ -35,12 +35,12 @@ docker-compose down -v
 
 | 服务 | 容器名 | 端口 | 说明 |
 |------|--------|------|------|
-| MySQL | yu-ai-mysql | 3306 | 数据库 |
-| Redis | yu-ai-redis | 6379 | 缓存 |
-| Backend | yu-ai-backend | 8123 | 后端应用 |
-| Frontend | yu-ai-frontend | 80 | 前端应用 |
-| Prometheus | yu-ai-prometheus | 9090 | 监控数据采集 |
-| Grafana | yu-ai-grafana | 3000 | 监控可视化 |
+| MySQL | ai-mysql | 3306 | 数据库 |
+| Redis | ai-redis | 6379 | 缓存 |
+| Backend | ai-backend | 8123 | 后端应用 |
+| Frontend | ai-frontend | 80 | 前端应用 |
+| Prometheus | ai-prometheus | 9090 | 监控数据采集 |
+| Grafana | ai-grafana | 3000 | 监控可视化 |
 
 ## 三、访问地址
 
@@ -66,7 +66,7 @@ docker-compose down -v
 ```yaml
 environment:
   # 数据库配置
-  - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/yu_ai_router
+  - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/ai_router
   - SPRING_DATASOURCE_USERNAME=root
   - SPRING_DATASOURCE_PASSWORD=123456
   
@@ -110,10 +110,10 @@ docker-compose logs -f redis
 
 ```bash
 # 进入后端容器
-docker exec -it yu-ai-backend sh
+docker exec -it ai-backend sh
 
 # 进入 MySQL 容器
-docker exec -it yu-ai-mysql mysql -uroot -p123456
+docker exec -it ai-mysql mysql -uroot -p123456
 ```
 
 ### 3. 重启特定服务
@@ -130,7 +130,7 @@ docker-compose restart frontend
 docker network ls
 
 # 检查容器网络
-docker network inspect yu-ai-router_app-network
+docker network inspect ai-router_app-network
 ```
 
 ## 七、生产环境部署建议
@@ -149,10 +149,10 @@ docker network inspect yu-ai-router_app-network
 
 ```bash
 # 备份 MySQL 数据
-docker exec yu-ai-mysql mysqldump -uroot -p123456 yu_ai_router > backup.sql
+docker exec ai-mysql mysqldump -uroot -p123456 ai_router > backup.sql
 
 # 恢复数据
-docker exec -i yu-ai-mysql mysql -uroot -p123456 yu_ai_router < backup.sql
+docker exec -i ai-mysql mysql -uroot -p123456 ai_router < backup.sql
 ```
 
 ### 4. 资源限制
