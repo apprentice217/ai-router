@@ -1,15 +1,14 @@
 # 数据库初始化
-# @author <a href="https://codefather.cn">编程导航学习圈</a>
 
 -- 设置字符集
 SET NAMES utf8mb4;
 SET CHARACTER SET utf8mb4;
 
 -- 创建库
-create database if not exists yu_ai_router;
+create database if not exists ai_router;
 
 -- 切换库
-use yu_ai_router;
+use ai_router;
 
 -- 用户表
 create table if not exists user
