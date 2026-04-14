@@ -14,12 +14,12 @@ load_dotenv()
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(extra="ignore", case_sensitive=False)
 
-    app_name: str = "yu-ai-router-python-backend"
+    app_name: str = "ai-router-python-backend"
     app_env: str = Field(default="local")
     app_host: str = "0.0.0.0"
     app_port: int = 8123
     app_base_path: str = "/api"
-    app_timezone: str = "Asia/Shanghai"
+    app_timezone: str = "Asia/Beijing"
 
     mysql_host: str = "127.0.0.1"
     mysql_port: int = 3306
