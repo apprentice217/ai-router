@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     mysql_port: int = 3306
     mysql_user: str = "root"
     mysql_password: str = ""
-    mysql_db: str = "yu_ai_router"
+    mysql_db: str = "ai_router"
     mysql_charset: str = "utf8mb4"
 
     redis_host: str = "127.0.0.1"
